@@ -16,8 +16,6 @@ else
 
 
 cmd = cmd + '| grep ^' + program.filesystem + '@| tail -n 1| cut -d\'@\' -f2| cut -d\'-\' -f4-7';
-console.log(cmd);
-process.exit();
 var out = child.execSync(cmd).toString().split('\n').filter(function(s) {
     return s;
 });
