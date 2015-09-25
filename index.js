@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 var program = require('commander'),
+    moment = require('moment'),
     child = require('child_process');
 
 program
@@ -19,4 +20,7 @@ cmd = cmd + '| grep ^' + program.filesystem + '@| tail -n 1| cut -d\'@\' -f2| cu
 var out = child.execSync(cmd).toString().split('\n').filter(function(s) {
     return s;
 });
+out = out[0];
+out = moment(out).unix();
+
 console.log(out);
