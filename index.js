@@ -10,7 +10,14 @@ program
     .version('0.0.1')
     .option('-f, --filesystem [type]', 'Add the specified type of cheese [marble]', 'tank/Rick')
     .option('-s, --snapshots [type]', 'Use snapshots file [marble] rather then listing them', false)
+    .option('-b, --backupMode', 'Use backup mode and prepend tank/Snapshots to fs', false)
     .parse(process.argv);
+
+
+console.log('backup mode', program.backupMode);
+
+
+
 
 if (!program.snapshots)
     var cmd = 'zfs list -t snap -o name ';
