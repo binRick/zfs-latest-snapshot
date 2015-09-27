@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 var program = require('commander'),
-    moment = require('moment'),
     child = require('child_process');
 
 child.execSync = child.execSync || require('exec-sync');
@@ -24,6 +23,4 @@ var out = child.execSync(cmd).toString().split('\n').filter(function(s) {
     return s;
 });
 out = out[0];
-out = moment(out).unix();
-
-console.log(out[0]);
+console.log(out);
