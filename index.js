@@ -10,12 +10,12 @@ program
     .version('0.0.1')
     .option('-f, --filesystem [type]', 'Add the specified type of cheese [marble]', 'tank/Rick')
     .option('-s, --snapshots [type]', 'Use snapshots file [marble] rather then listing them', false)
-    .option('-b, --backupmode [mode]', 'Use backup mode and prepend tank/Snapshots to fs', false)
+    .option('-n, --backupnode [backupnode]', 'Use backup node and prepend tank/Snapshots/NODE to fs', false)
     .parse(process.argv);
 
 
-if(program.backupmode)
-    program.filesystem = 'tank/Snapshots/' + program.filesystem;
+if(program.backupnode)
+    program.filesystem = 'tank/Snapshots/' +program.backupnode+'/'+ program.filesystem;
 
 
 
