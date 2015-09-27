@@ -4,6 +4,9 @@ var program = require('commander'),
     moment = require('moment'),
     child = require('child_process');
 
+child.execSync = child.execSync || require('exec-sync');
+
+
 program
     .version('0.0.1')
     .option('-f, --filesystem [type]', 'Add the specified type of cheese [marble]', 'tank/Rick')
@@ -23,4 +26,4 @@ var out = child.execSync(cmd).toString().split('\n').filter(function(s) {
 out = out[0];
 out = moment(out).unix();
 
-console.log(out);
+console.log(out[0]);
