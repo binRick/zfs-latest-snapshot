@@ -14,7 +14,7 @@ program
     .parse(process.argv);
 
 
-console.log('backup mode', program.backupMode);
+console.log('backup mode', program.backupmode);
 
 
 
