@@ -14,8 +14,8 @@ program
     .parse(process.argv);
 
 
-console.log('backup mode', program.backupmode);
-
+if(program.backupmode)
+    program.filesystem = 'tank/Snapshots/' + program.filesystem;
 
 
 
